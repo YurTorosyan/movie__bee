@@ -1,0 +1,20 @@
+.header{
+  position: fixed;
+  left: 0;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  padding: 5px;
+  &__logo {
+    display: flex;
+    height: 60px;
+  }
+  img {
+    width: 60px;
+  }
+  h1 {
+    font-family: 'Damion', cursive;
+    line-height: 50px;
+    vertical-align: bottom;
+    color: var(--primary-color);
+  }
+}
