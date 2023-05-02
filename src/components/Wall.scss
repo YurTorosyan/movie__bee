@@ -1,0 +1,18 @@
+.wall {
+  min-height: 500px;
+  max-width: 1440px;
+  
+  &__container {
+    min-height: 500px;
+  }
+  &__wrap {
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  &__info {
+    display: flex;
+    gap: 15px;
+  }
+}

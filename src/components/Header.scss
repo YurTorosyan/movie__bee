@@ -4,6 +4,13 @@
   width: 100%;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   padding: 5px;
+
+  transition: background-color 250ms ease-in, transform 150ms linear;
+  &__shown {
+    background-color: var(--bg-color);
+    box-shadow: rgba(78, 69, 0, 0.25) 1.95px 1.95px 2.6px;
+    transform: translateY(-45%);
+  }
   &__logo {
     display: flex;
     height: 60px;
