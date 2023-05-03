@@ -6,7 +6,7 @@ export default function Header() {
   const [show, setShow] = useState(false)
 
   const scrollDetect = () => {
-    if(window.scrollY > 80) {
+    if(window.scrollY > 0) {
       setShow(true)
     } else {
       setShow(false)
