@@ -23,7 +23,7 @@ export default function () {
   function trancate(str, n) {
     return str?.length > n ? str.slice(0, n - 1) + "..." : str;
   }
-  console.log(movie)
+
   return (
     <div className='wall' style={{
       backgroundSize: "cover",

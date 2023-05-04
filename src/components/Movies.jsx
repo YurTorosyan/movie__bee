@@ -13,6 +13,7 @@ export default function Movies({ title, fetchUrl }) {
   const [movies, setMovies] = useState([])
   const [trailerUrl, setTrailerUrl] = useState("")
   const [timeToPlay, setTimeToPlay] = useState(false)
+
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(fetchUrl);
@@ -28,7 +29,6 @@ export default function Movies({ title, fetchUrl }) {
       movieTrailer(movie.name || movie.title || "")
         .then(url => {
           const urlParams = new URLSearchParams(new URL(url).search)
-          console.log(urlParams)
           setTrailerUrl(urlParams.get('v'));
         })
         .catch(err => console.log(err))
@@ -39,11 +39,10 @@ export default function Movies({ title, fetchUrl }) {
     height: '600',
     width: '100%',
     playerVars: {
-      // https://developers.google.com/youtube/player_parameters
       autoplay: 1,
     },
   };
-  
+
   const settings = {
     infinite: true,
     slidesToShow: 7,
@@ -52,6 +51,7 @@ export default function Movies({ title, fetchUrl }) {
     autoplaySpeed: 2000,
     cssEase: "linear",
   };
+  
   return (
     <div className='movies'>
       <div className="movies__container">
