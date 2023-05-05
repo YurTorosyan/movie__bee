@@ -1,5 +1,4 @@
 import React from 'react'
-import loader from "../assets/loader.svg"
 import logo from "../assets/logo.webp"
 import "./Loader.scss"
 

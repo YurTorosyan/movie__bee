@@ -47,6 +47,8 @@ export default function Movies({ title, fetchUrl }) {
     },
   };
 
+
+
   const settings = {
     infinite: true,
     slidesToShow: 7,
@@ -54,6 +56,44 @@ export default function Movies({ title, fetchUrl }) {
     speed: 500,
     autoplaySpeed: 2000,
     cssEase: "linear",
+    responsive: [
+      {
+        breakpoint: 1275,
+        settings: {
+          slidesToShow: 6,
+        }
+      },
+      {
+        breakpoint: 1110,
+        settings: {
+          slidesToShow: 5,
+        }
+      },
+      {
+        breakpoint: 945,
+        settings: {
+          slidesToShow: 4,
+        }
+      },
+      {
+        breakpoint: 780,
+        settings: {
+          slidesToShow: 5,
+        }
+      },
+      {
+        breakpoint: 590,
+        settings: {
+          slidesToShow: 4,
+        }
+      },
+      {
+        breakpoint: 400,
+        settings: {
+          slidesToShow: 3,
+        }
+      }
+    ]
   };
   
   return (

@@ -45,7 +45,7 @@
 }
 .slick-slide {
   cursor: pointer;
-  max-width: 200px;
+  min-width: 150px;
 
   transition: transform 200ms ease;
   &:hover {
@@ -74,5 +74,36 @@
   height: 100%;
   &::before {
     color: var(--primary-color);
+  }
+}
+
+@media (max-width: 780px) {
+  .slick-slide {
+    min-width: 80px;
+  }
+  .movies {
+    h2 {
+      font-size: 20px;
+    }
+    p {
+      top: auto;
+      bottom: 0;
+      font-size: 13px;
+    }
+  }
+}
+@media (max-width: 400px) {
+  .slick-slide {
+    min-width: 70px;
+  }
+  .movies {
+    h2 {
+      font-size: 15px;
+    }
+    p {
+      top: auto;
+      bottom: 0;
+      font-size: 11px;
+    }
   }
 }
