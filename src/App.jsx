@@ -4,17 +4,11 @@ import Header from './components/Header'
 import Movies from './components/Movies'
 import Wall from './components/Wall'
 import requests from './requests'
-import Loader from './components/Loader'
+
 
 function App() {
-  const [loading, setLoading] = useState(true)
-  useEffect(() => {
-    setTimeout(() => { setLoading(false) }, 2000)
-  }, [])
-  
   return (
     <>
-      {loading? <Loader /> : ""}
       <Header />
         <Wall />
         <Movies title={"Trending"} fetchUrl={requests.fetchTrending}/>

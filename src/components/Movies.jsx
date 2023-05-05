@@ -6,6 +6,7 @@ import YouTube from 'react-youtube';
 import movieTrailer from 'movie-trailer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleXmark, faStarHalfStroke } from '@fortawesome/free-solid-svg-icons';
+import Loader from '../components/Loader'
 
 const base_url = 'https://image.tmdb.org/t/p/w500/';
 
@@ -13,11 +14,14 @@ export default function Movies({ title, fetchUrl }) {
   const [movies, setMovies] = useState([])
   const [trailerUrl, setTrailerUrl] = useState("")
   const [timeToPlay, setTimeToPlay] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(fetchUrl);
       setMovies(request.data.results)
+      setTimeout(() => { setLoading(false) }, 2000)
+      
     }
     fetchData()
   }, [fetchUrl])
@@ -53,6 +57,8 @@ export default function Movies({ title, fetchUrl }) {
   };
   
   return (
+    <>
+    {loading ? <Loader/> : ""}
     <div className='movies'>
       <div className="movies__container">
         <div>
@@ -88,5 +94,6 @@ export default function Movies({ title, fetchUrl }) {
         </div>
       </div>
     </div>
+    </>
   )
 }
