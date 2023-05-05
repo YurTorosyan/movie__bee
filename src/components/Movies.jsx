@@ -88,7 +88,7 @@ export default function Movies({ title, fetchUrl }) {
         }
       },
       {
-        breakpoint: 400,
+        breakpoint: 420,
         settings: {
           slidesToShow: 3,
         }
