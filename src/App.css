@@ -1,20 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Damion&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Damion&display=swap");
 
 :root {
-    --primary-color: #FCB43A;
-    --bg-color: #222831;
-    --text-color: #fafafa;
+  --primary-color: #fcb43a;
+  --bg-color: #222831;
+  --text-color: #fafafa;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 [class$="__container"] {
-    max-width: 1440px;
-    padding: 0px 20px;
-    margin: 0 auto;
+  max-width: 1440px;
+  padding: 0px 20px;
+  margin: 0 auto;
+}
+
+._lock {
+  overflow: hidden;
 }

@@ -1,0 +1,132 @@
+.registr {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(34, 40, 49, 0.9);
+  &__decor-bg {
+    padding: 5px;
+    background-color: transparent;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+  }
+  &__decor-elem {
+    position: absolute;
+    top: 50%;
+    left: -50%;
+    translate: 0% -50%;
+    background-color: var(--primary-color);
+    width: 200%;
+    height: 80px;
+
+    transform-origin: center center;
+    filter: blur(5px);
+
+    animation: rotate 2s infinite;
+    z-index: -1;
+  }
+  &__decor {
+    background-color: var(--bg-color);
+    border-radius: 5px;
+    padding: 20px;
+  }
+  &__title {
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+    margin: 0 0 15px;
+    text-align: center;
+  }
+  &__error {
+    font-size: 13px;
+    margin-top: 5px;
+    font-weight: 200;
+    text-align: right;
+  }
+  &__input-wrapp {
+    margin-bottom: 15px;
+  }
+  &__checkbox-wrapper {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 5px;
+    label {
+      cursor: pointer;
+      user-select: none;
+    }
+  }
+  form {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  input {
+    display: block;
+    width: 320px;
+    font-size: 17px;
+    font-weight: 200;
+    padding: 10px 5px;
+    color: var(--text-color);
+    background-color: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    border-radius: 2px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.4);
+    &:focus {
+      outline: none;
+      background-color: transparent;
+    }
+  }
+  svg {
+    cursor: pointer;
+    color: var(--primary-color);
+  }
+  input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    z-index: -99;
+  }
+  legend {
+    color: var(--primary-color);
+    font-weight: 400;
+  }
+  fieldset {
+    border-color: var(--primary-color);
+    margin-bottom: 15px;
+    border-radius: 5px;
+  }
+  button[type="submit"] {
+    margin: 10px;
+    padding: 15px 30px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: var(--text-color);
+    border-radius: 10px;
+    display: block;
+    border: 0px;
+    font-weight: 700;
+    box-shadow: 0px 0px 14px -7px var(--primary-color);
+    background-image: linear-gradient(
+      45deg,
+      #ff712f 0%,
+      var(--primary-color) 51%,
+      #ff712f 100%
+    );
+    cursor: pointer;
+    user-select: none;
+    touch-action: manipulation;
+    &:hover {
+      background-position: right center;
+      color: #fff;
+      text-decoration: none;
+    }
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+}
