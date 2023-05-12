@@ -2,12 +2,17 @@ import React, { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import "./Regist.scss";
-import { faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
+import {
+  faEye,
+  faEyeSlash,
+  faRectangleXmark,
+} from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
+
 const API_KEY = import.meta.env.VITE_FIREBASE_API_KEY;
 
-export default function Regist() {
+export default function Regist({ handleCloseTab }) {
   const [passwordShown, setPasswordShown] = useState(false);
 
   const getCharacterValidationError = (str) => {
@@ -30,7 +35,7 @@ export default function Regist() {
   });
 
   return (
-    <div className="registr">
+    <div className="auth">
       <Formik
         initialValues={{
           email: "",
@@ -48,6 +53,7 @@ export default function Regist() {
               }
             )
             .then(function (response) {
+              handleCloseTab();
               console.log(response);
             })
             .catch(function (error) {
@@ -57,42 +63,49 @@ export default function Regist() {
       >
         {({ errors, touched }) => (
           <Form>
-            <div className="registr__decor-bg">
-              <div className="registr__decor">
-                <span className="registr__decor-elem"></span>
-                <h2 className="registr__title">Registration</h2>
+            <div className="auth__decor-bg">
+              <div className="auth__decor">
+                <span className="auth__decor-elem"></span>
+                <span
+                  type="button"
+                  className="auth__close"
+                  onClick={() => handleCloseTab()}
+                >
+                  <FontAwesomeIcon icon={faRectangleXmark} />
+                </span>
+                <h2 className="auth__title">Registration</h2>
                 <fieldset>
                   <legend>Email</legend>
-                  <Field name="email" type="email" />
+                  <Field name="email" type="email" placeholder="Email" />
                   {errors.email && touched.email ? (
-                    <div className="registr__error">{errors.email}</div>
+                    <div className="auth__error">{errors.email}</div>
                   ) : null}
                 </fieldset>
                 <fieldset>
                   <legend>Password</legend>
-                  <div className="registr__input-wrapp">
+                  <div className="auth__input-wrapp">
                     <Field
                       name="password"
                       type={passwordShown ? "text" : "password"}
                       placeholder="Password"
                     />
                     {errors.password && touched.password ? (
-                      <div className="registr__error">{errors.password}</div>
+                      <div className="auth__error">{errors.password}</div>
                     ) : null}
                   </div>
-                  <div className="registr__input-wrapp">
+                  <div className="auth__input-wrapp">
                     <Field
                       name="passwordConfirm"
                       type={passwordShown ? "text" : "password"}
                       placeholder="Repeat Password"
                     />
                     {errors.passwordConfirm && touched.passwordConfirm ? (
-                      <div className="registr__error">
+                      <div className="auth__error">
                         {errors.passwordConfirm}
                       </div>
                     ) : null}
                   </div>
-                  <div className="registr__checkbox-wrapper">
+                  <div className="auth__checkbox-wrapper">
                     <label htmlFor="showPassword">Show Password</label>
                     <label htmlFor="showPassword">
                       {passwordShown ? (
@@ -113,7 +126,7 @@ export default function Regist() {
                   </div>
                 </fieldset>
 
-                <button type="submit">Submit</button>
+                <button type="submit">Join</button>
               </div>
             </div>
           </Form>

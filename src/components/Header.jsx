@@ -29,6 +29,11 @@ export default function Header() {
     }
   };
 
+  const handleCloseTab = () => {
+    setShowForm({ login: false, regist: false });
+    document.body.classList.remove("_lock");
+  };
+
   useEffect(() => {
     window.addEventListener("scroll", scrollDetect);
     return () => window.removeEventListener("scroll", scrollDetect);
@@ -40,6 +45,7 @@ export default function Header() {
         <div className="header__wrap">
           <div className="header__logo">
             <img src={logo} alt="Logo" />
+            <h1>Movie Bee</h1>
           </div>
           <div className="header__auth">
             <button className="header__login" onClick={handleChangeLogin}>
@@ -48,9 +54,9 @@ export default function Header() {
             <button className="header__register" onClick={handleChangeLogin}>
               Join Us
             </button>
-            {showForm.login && <Signin />}
+            {showForm.login && <Signin handleCloseTab={handleCloseTab} />}
             {}
-            {showForm.regist && <Regist />}
+            {showForm.regist && <Regist handleCloseTab={handleCloseTab} />}
           </div>
         </div>
       </div>
